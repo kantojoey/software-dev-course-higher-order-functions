@@ -90,7 +90,7 @@ Step-by-Step:
 console.log(`\nInitiating Task 3...`);
 
 function applyDiscount(discountPercent){
-  return products.map((product) => ({...product, price: product.price*(discountPercent/100)}));
+  return products.map((product) => ({...product, price: (product.price -(product.price*(discountPercent/100)))}));
 }
 let halfOff = applyDiscount(50);
 console.log(`\nApplying 50% discount...`);
