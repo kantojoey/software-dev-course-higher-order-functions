@@ -43,6 +43,19 @@ Step-by-Step:
 2. Use the `filter()` method to apply the callback to the array.
 3. Return the filtered result.
 */
+console.log("Initiating Task 1...")
+
+function filterProducts(arr, callback){
+  return arr.filter(callback);
+}
+
+let availableItems = filterProducts(products, (product) => product.inStock === true);
+console.log(`\nFiltering in stock products...`);
+console.log(availableItems);
+
+let productsUnder800 = filterProducts(products, (product) => product.price < 800);
+console.log(`\nFiltering by products under $800...`);
+console.log(productsUnder800);
 
 
 /*
@@ -55,6 +68,11 @@ Step-by-Step:
 2. Extract and transform the `name` property to uppercase.
 3. Store the result in a new variable.
 */
+console.log(`\nInitializing Task 2...`);
+
+console.log(`\nCapitalizing product list...`);
+let capitalizedProducts = products.map((product) => ({...product, name:product.name.toUpperCase()}));
+console.log(capitalizedProducts);
 
 
 /*
@@ -69,6 +87,18 @@ Step-by-Step:
 2. Return a new function that takes a product object.
 3. Use this returned function inside a `map()` call to apply discounts to all products.
 */
+console.log(`\nInitiating Task 3...`);
+
+function applyDiscount(discountPercent){
+  return products.map((product) => ({...product, price: product.price*(discountPercent/100)}));
+}
+let halfOff = applyDiscount(50);
+console.log(`\nApplying 50% discount...`);
+console.log(halfOff);
+
+let employeeDiscount = applyDiscount(75);
+console.log(`\nApplying 75% employee discount...`);
+console.log(employeeDiscount);
 
 
 /*
@@ -81,7 +111,17 @@ Step-by-Step:
 2. Add only the prices of products where `inStock` is true.
 3. Store the total in a new variable.
 */
+console.log(`\nInitializing Task 4...`);
 
+// for(product of products){
+//   let sum = 0
+//   if(product.inStock === true){
+//     products.reduce((sum, product)=> sum + product.price, 0);
+//   }
+//   console.log(sum);
+// }
+let totalProductValue = availableItems.reduce((sum, value) => sum + value.price, 0);
+console.log(`\nTotal value of in stock products: $${totalProductValue}`);
 
 // ============================================
 // 🧪 Console Test Your Work
