@@ -113,13 +113,6 @@ Step-by-Step:
 */
 console.log(`\nInitializing Task 4...`);
 
-// for(product of products){
-//   let sum = 0
-//   if(product.inStock === true){
-//     products.reduce((sum, product)=> sum + product.price, 0);
-//   }
-//   console.log(sum);
-// }
 let totalProductValue = availableItems.reduce((sum, value) => sum + value.price, 0);
 console.log(`\nTotal value of in stock products: $${totalProductValue}`);
 
